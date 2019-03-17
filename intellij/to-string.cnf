@@ -1,5 +1,5 @@
 public java.lang.String toString() {
-#set ($size = $members.size() * 4)
+#set ($size = $members.size() * 5)
 final java.lang.StringBuilder sb = new java.lang.StringBuilder($size);
 sb.append("$classname{");
 #set ($i = 0)
