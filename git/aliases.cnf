@@ -1,0 +1,33 @@
+[alias]
+    st = status
+    s = status -uno
+    ci = commit
+    di = diff -b
+    co = checkout
+    # log
+    log = log --decorate --graph --date=short
+    l = log
+    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+    short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+    changelog = log --pretty=format:\" * %s\"
+    shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+    up = checkout
+    hgrevert = checkout HEAD
+    strip = reset --hard
+    branches = branch -a
+    rollback = reset --soft HEAD^
+    
+    merge-to-master =  "!f(){ branch_name=\"$(git symbolic-ref HEAD 2>/dev/null)\" || branch_name=\"(unnamed branch)\"; branch_name=${branch_name##refs/heads/}; git checkout master && git merge $branch_name && git checkout $branch_name; };f"
+    fork-from-master = "!f(){ git checkout master && git branch $1 && git checkout $1; };f"
+    br = branch
+    cp = cherry-pick
+    cps = cherry-pick -s
+    slog = log --pretty=oneline --abbrev-commit
+    glog = log --graph --decorate --pretty=oneline --abbrev-commit
+    gloga = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    unci = reset HEAD^
+    uncommit = reset HEAD^
+    ls = ls-files
+    out = "!f() { git log origin/$1..$1 };f"
+    last = diff HEAD^
+
