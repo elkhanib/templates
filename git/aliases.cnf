@@ -10,7 +10,7 @@
         #adding only files already tracked
         at = add -u
 
-        #adding new files, files already tracked in current working tree, and remove files
+        #adding new files, files already tracked, and remove files from index that are no longer in the working tree
         aa = add --all
 
         #adding new files and files already tracked
