@@ -1,0 +1,31 @@
+public java.lang.String toString() {
+#set ($size = $members.size() * 4)
+final java.lang.StringBuilder sb = new java.lang.StringBuilder($size);
+sb.append("$classname{");
+#set ($i = 0)
+#foreach ($member in $members)
+#if ($i == 0) sb.append("##
+#else sb.append(", ##
+#end
+#if ($member.string)
+$member.name='")##
+#else $member.name=")##
+#end
+#if ($member.primitiveArray || $member.objectArray)
+.append(java.util.Arrays.toString($member.name));
+#elseif ($member.string)
+.append($member.accessor).append('\'');
+#else
+.append($member.accessor);
+#end
+#set ($i = $i + 1)
+#end
+#if ($class.hasSuper)
+sb.append("}, ");
+sb.append(super.toString());
+#else
+sb.append("}");
+#end
+return sb.toString();
+}
+
