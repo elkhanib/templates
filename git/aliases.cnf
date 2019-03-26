@@ -26,6 +26,7 @@
         changelog = log --pretty=format:\" * %s\"
         shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
         stsh = stash list --pretty=format:'%Cblue%gd%Cred: %C(yellow)%s'q
+        history = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
         up = checkout
         hgrevert = checkout HEAD
         strip = reset --hard
