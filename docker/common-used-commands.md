@@ -17,6 +17,11 @@ sudo docker run -p 8081:80 -e "PGADMIN_DEFAULT_EMAIL=elkhan.s.ibrahimov@gmail.co
 sudo docker run -d --hostname rabbit_host -v "rabbitmq_log:/home/elkhan/docker_container_data/rabbitmq/log" -v "rabbitmq_data:/home/elkhan/docker_container_data/rabbitmq/lib" -p 5672:5672 -p 5671:5671 -p 15672:15672 rabbitmq:3-management
 sudo docker exec container_name_or_id ls -l /home/elkhan/docker_container_data/rabbitmq/log
 
+#ibm integration bus
+docker run -e LICENSE=accept -e NODENAME=TMP -e SERVERNAME=LOCAL_IIB -P iib
 
+#elasticsearch
+sudo docker run -d -p 9300:9300 -p 9200:9200 --hostname elasticsearch_host -e "discovery.type=single-node" --name contrainer-elasticsearch elasticsearch:7.0.0 
 
-
+#elk
+sudo docker run -d -p 9300:9300 -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --hostname elk_host --name contrainer-elk sebp/elk
